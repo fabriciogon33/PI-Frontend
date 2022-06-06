@@ -36,4 +36,48 @@ class ProductService {
       throw Exception("Produto não encontrado $e");
     }
   }
+
+  Future<ProductModel?> createProduct({required ProductModel product}) async {
+    ProductModel? productCreate;
+    try {
+      Response response = await Dio().post(
+        url + pathUrl,
+        data: Product.toJson(),
+      );
+      print('Product criado: ${response.data}');
+      productCreate = ProductModel.fromJson(response.data);
+    } catch (e) {
+      print('Erro ao criar Product: $e');
+      throw Exception("Erro ao cadastrar Produto $e");
+    }
+
+    return productCreate;
+  }
+
+  Future<ProductModel?> updateProduct(
+      {required ProductModel Product, required String id}) async {
+    ProductModel? productCreate;
+    try {
+      Response response = await Dio().put(
+        url + pathUrl + id,
+        data: Product.toJson(),
+      );
+      print('Usuário criado: ${response.data}');
+      productCreate = ProductModel.fromJson(response.data);
+    } catch (e) {
+      print('Erro ao editar o Product: $e');
+      throw Exception("Erro ao editar Produto $e");
+    }
+
+    return productCreate;
+  }
+
+  Future<void> deleteProduct(String id) async {
+    try {
+      await Dio().delete(url + pathUrl + '/' + id);
+    } catch (e) {
+      throw Exception("Erro ao deletar Produto $e");
+    }
+  }
 }
+

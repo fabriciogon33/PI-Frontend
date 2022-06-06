@@ -52,7 +52,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             _corController.text = product.cor.toString();
             _valorCustoController.text = product.valorCusto.toString();
             _valorVendaController.text = product.valorVenda.toString();
-            _observacaoController.text = product.observation.toString();
+            _observacaoController.text = product.obs.toString();
             return Column(
               children: [
                 Container(

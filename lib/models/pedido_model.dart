@@ -1,4 +1,5 @@
 class PedidoModel {
+  int? id;
   int? clienteId;
   String dataEntrega;
   String obs;
@@ -7,9 +8,9 @@ class PedidoModel {
   String valorFrete;
   String desconto;
   String valorTotalLiquido;
-  int transportadoraId;
-  int formaPagtoId;
-  int statusId;
+  String transportadoraId;
+  String formaPagtoId;
+  String statusId;
 
   PedidoModel({
     this.clienteId,

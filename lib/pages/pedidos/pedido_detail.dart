@@ -245,48 +245,49 @@ class _PedidoDetailScreenState extends State<PedidoDetailScreen> {
                                     });
 
                                     if (_clienteIdController.text != '' &&
-                                  _dataEntregaController.text != '' &&
-                                  _obsController.text != '' &&
-                                  _statusController.text != '' &&
-                                  _valorTotalBrutoController.text != '' &&
-                                  _valorFreteController.text != '' &&
-                                  _descontoController.text != '' &&
-                                  _valorTotalLiquidoController.text != '' &&
-                                  _transportadoraIdController.text != '' &&
-                                  _formaPagtoIdController.text != '' &&
-                                PedidoModel pedidoModel = PedidoModel(
-                                    clienteId: null,
-                                    dataEntrega: _dataEntregaController.text,
-                                    obs: _obsController.text,
-                                    status: _statusController.text,
-                                    valorTotalBruto: _valorTotalBrutoController.text,
-                                    valorFrete: _valorFreteController.text,
-                                    desconto: _descontoController.text,
-                                    valorTotalLiquido: _valorTotalLiquidoController.text,
-                                    transportadoraId: _transportadoraIdController.text,
-                                    formaPagtoId: _formaPagtoIdController.text
-                                    );
-                                  PedidoModel? pedidoCreate =
-                                          await pedidoService.updatePedido(
-                                              pedido: pedidoModel,
-                                              clienteId: '/' + args.id);
+                                        _dataEntregaController.text != '' &&
+                                        _obsController.text != '' &&
+                                        _statusController.text != '' &&
+                                        _valorTotalBrutoController.text != '' &&
+                                        _valorFreteController.text != '' &&
+                                        _descontoController.text != '' &&
+                                        _valorTotalLiquidoController.text != '' &&
+                                        _transportadoraIdController.text != '' &&
+                                        _formaPagtoIdController.text != '') {
+                                      PedidoModel pedidoModel = PedidoModel(
+                                          clienteId: null,
+                                          dataEntrega: _dataEntregaController.text,
+                                          obs: _obsController.text,
+                                          status: _statusController.text,
+                                          valorTotalBruto: _valorTotalBrutoController.text,
+                                          valorFrete: _valorFreteController.text,
+                                          desconto: _descontoController.text,
+                                          valorTotalLiquido: _valorTotalLiquidoController.text,
+                                          transportadoraId: _transportadoraIdController.text,
+                                          formaPagtoId: _formaPagtoIdController.text,
+                                          statusId: _statusIdController.text);
+                                        
+                                      PedidoModel? pedidoCreate =
+                                        await pedidoService.updatePedido(
+                                            pedido: pedidoModel,
+                                            id: '/' + args.id);
 
-                                      if (pedidoCreate != null) {
-                                        print(pedidoCreate);
+                                        if (pedidoCreate != null) {
+                                          print(pedidoCreate);
+                                        }
                                       }
-                                    }
-                                    setState(() {
-                                      isUpdating = false;
-                                      Navigator.pushNamed(
-                                          context, '/pedidos');
-                                    });
-                                  },
+                                          setState(() {
+                                            isUpdating = false;
+                                            Navigator.pushNamed(
+                                                context, '/pedidos');
+                                          });
+                                        },
 
-                            child: const Text(
-                              "Salvar",
-                              style: TextStyle(
-                                  fontSize: 18, color: Color(0xff707070)),
-                            ),
+                                      child: const Text(
+                                        "Salvar",
+                                        style: TextStyle(
+                                            fontSize: 18, color: Color(0xff707070)),
+                                      ),
                           ),
                         )
                       ],

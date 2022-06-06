@@ -217,7 +217,7 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
                                   _descontoController.text != '' &&
                                   _valorTotalLiquidoController.text != '' &&
                                   _transportadoraIdController.text != '' &&
-                                  _formaPagtoIdController.text != '' &&
+                                  _formaPagtoIdController.text != '' ) {
                                 PedidoModel pedidoModel = PedidoModel(
                                     clienteId: null,
                                     dataEntrega: _dataEntregaController.text,
@@ -228,8 +228,8 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
                                     desconto: _descontoController.text,
                                     valorTotalLiquido: _valorTotalLiquidoController.text,
                                     transportadoraId: _transportadoraIdController.text,
-                                    formaPagtoId: _formaPagtoIdController.text
-                                    );
+                                    formaPagtoId: _formaPagtoIdController.text,
+                                    statusId: _statusIdController.text);
 
                                 PedidoModel? pedidoCreate =
                                     await pedidoService.createPedido(
