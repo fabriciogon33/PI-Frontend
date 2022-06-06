@@ -1,4 +1,4 @@
-class CostumerArgumens {
+class CostumerArguments {
   final String id;
-  CostumerArgumens(this.id);
+  CostumerArguments(this.id);
 }

@@ -42,7 +42,7 @@ class ProductService {
     try {
       Response response = await Dio().post(
         url + pathUrl,
-        data: Product.toJson(),
+        data: product.toJson(),
       );
       print('Product criado: ${response.data}');
       productCreate = ProductModel.fromJson(response.data);
@@ -55,12 +55,12 @@ class ProductService {
   }
 
   Future<ProductModel?> updateProduct(
-      {required ProductModel Product, required String id}) async {
+      {required ProductModel product, required String id}) async {
     ProductModel? productCreate;
     try {
       Response response = await Dio().put(
         url + pathUrl + id,
-        data: Product.toJson(),
+        data: product.toJson(),
       );
       print('Usuário criado: ${response.data}');
       productCreate = ProductModel.fromJson(response.data);

@@ -39,7 +39,7 @@ class _CostumerDetailScreenState extends State<CostumerDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final args = ModalRoute.of(context)!.settings.arguments as CostumerArgumens;
+    final args = ModalRoute.of(context)!.settings.arguments as CostumerArguments;
     costumer = costumerService.getCostumerById('/' + args.id);
     final size = MediaQuery.of(context).size;
 
