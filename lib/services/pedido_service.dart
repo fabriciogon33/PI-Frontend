@@ -36,4 +36,47 @@ class PedidoService {
       throw Exception("Pedido não encontrado $e");
     }
   }
+
+  Future<PedidoModel?> createPedido({required PedidoModel pedido}) async {
+    PedidoModel? pedidoCreate;
+    try {
+      Response response = await Dio().post(
+        url + pathUrl,
+        data: pedido.toJson(),
+      );
+      print('Pedido criado: ${response.data}');
+      pedidoCreate = PedidoModel.fromJson(response.data);
+    } catch (e) {
+      print('Erro ao criar pedido: $e');
+      throw Exception("Erro ao cadastrar pedido $e");
+    }
+
+    return pedidoCreate;
+  }
+
+  Future<PedidoModel?> updatePedido(
+      {required PedidoModel pedido, required String id}) async {
+    PedidoModel? pedidoCreate;
+    try {
+      Response response = await Dio().put(
+        url + pathUrl + id,
+        data: pedido.toJson(),
+      );
+      print('Usuário criado: ${response.data}');
+      pedidoCreate = PedidoModel.fromJson(response.data);
+    } catch (e) {
+      print('Erro ao editar o pedido: $e');
+      throw Exception("Erro ao editar pedido $e");
+    }
+
+    return pedidoCreate;
+  }
+
+  Future<void> deletePedido(String id) async {
+    try {
+      await Dio().delete(url + pathUrl + '/' + id);
+    } catch (e) {
+      throw Exception("Erro ao deletar pedido $e");
+    }
+  }
 }
