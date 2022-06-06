@@ -28,7 +28,7 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
   final _statusIdController = TextEditingController();
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
   }
 
@@ -72,10 +72,10 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
                     ),
                   ),
                   Positioned(
-                    top: 10,
+                    top: 70,
                     bottom: 80,
                     left: 10,
-                    right: 380,
+                    right: 600,
                     child: CustomTextField(
                       controller: _dataEntregaController,
                       label: "Data de Entrega",
@@ -100,8 +100,8 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
                   Positioned(
                     top: 70,
                     bottom: 80,
-                    left: 10,
-                    right: 480,
+                    left: 200,
+                    right: 300,
                     child: CustomTextField(
                       controller: _statusController,
                       label: "Status",
@@ -113,7 +113,7 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
                   Positioned(
                     top: 70,
                     bottom: 80,
-                    left: 320,
+                    left: 500,
                     right: 10,
                     child: CustomTextField(
                       controller: _valorTotalBrutoController,
@@ -217,23 +217,27 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
                                   _descontoController.text != '' &&
                                   _valorTotalLiquidoController.text != '' &&
                                   _transportadoraIdController.text != '' &&
-                                  _formaPagtoIdController.text != '' &&
+                                  _formaPagtoIdController.text != '') {
                                 PedidoModel pedidoModel = PedidoModel(
                                     clienteId: null,
                                     dataEntrega: _dataEntregaController.text,
                                     obs: _obsController.text,
                                     status: _statusController.text,
-                                    valorTotalBruto: _valorTotalBrutoController.text,
+                                    valorTotalBruto:
+                                        _valorTotalBrutoController.text,
                                     valorFrete: _valorFreteController.text,
                                     desconto: _descontoController.text,
-                                    valorTotalLiquido: _valorTotalLiquidoController.text,
-                                    transportadoraId: _transportadoraIdController.text,
-                                    formaPagtoId: _formaPagtoIdController.text
-                                    );
+                                    valorTotalLiquido:
+                                        _valorTotalLiquidoController.text,
+                                    transportadoraId: int.parse(
+                                        _transportadoraIdController.text),
+                                    formaPagtoId:
+                                        int.parse(_formaPagtoIdController.text),
+                                    statusId:
+                                        int.parse(_statusController.text));
 
-                                PedidoModel? pedidoCreate =
-                                    await pedidoService.createPedido(
-                                        pedido: pedidoModel);
+                                PedidoModel? pedidoCreate = await pedidoService
+                                    .createPedido(pedido: pedidoModel);
 
                                 if (pedidoCreate != null) {
                                   print(pedidoCreate);
@@ -241,15 +245,15 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
                               }
                               setState(() {
                                 isCreating = false;
-                                Navigator.pushNamed(context, '/pedido');
+                                Navigator.pushNamed(context, '/pedidos');
                               });
                             },
-                      child: const Text(
-                        "Salvar",
-                        style:
-                            TextStyle(fontSize: 18, color: Color(0xff707070)),
-                      ),
-                    ),
+                            child: const Text(
+                              "Salvar",
+                              style: TextStyle(
+                                  fontSize: 18, color: Color(0xff707070)),
+                            ),
+                          ),
                   )
                 ],
               ),

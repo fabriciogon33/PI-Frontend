@@ -15,6 +15,7 @@ class ProductScreen extends StatefulWidget {
 class _ProductScreenState extends State<ProductScreen> {
   ProductService productService = ProductService();
   late Future<List<ProductModel>> productList;
+  bool isDeleting = false;
 
   @override
   void initState() {
@@ -86,6 +87,30 @@ class _ProductScreenState extends State<ProductScreen> {
                                   product.tamanho,
                                   style: const TextStyle(),
                                 ),
+                                new Spacer(),
+                                isDeleting
+                                    ? CircularProgressIndicator()
+                                    : IconButton(
+                                        onPressed: () async {
+                                          setState(() {
+                                            isDeleting = true;
+                                          });
+                                          productService.deleteProduct(
+                                              product.id.toString());
+                                          setState(() {
+                                            isDeleting = false;
+                                            productList =
+                                                productService.getAllProducts();
+                                            Navigator.pushReplacement(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (BuildContext
+                                                            context) =>
+                                                        super.widget));
+                                          });
+                                        },
+                                        iconSize: 25,
+                                        icon: const Icon(Icons.delete))
                               ],
                             ),
                           ),

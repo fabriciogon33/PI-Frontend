@@ -15,6 +15,7 @@ class PedidoScreen extends StatefulWidget {
 class _PedidoScreenState extends State<PedidoScreen> {
   PedidoService pedidoService = PedidoService();
   late Future<List<PedidoModel>> pedidoList;
+  bool isDeleting = false;
 
   @override
   void initState() {
@@ -60,7 +61,8 @@ class _PedidoScreenState extends State<PedidoScreen> {
                               Navigator.pushNamed(
                                 context,
                                 '/pedido-detail',
-                                arguments: PedidoArgumens(pedido.id.toString()),
+                                arguments:
+                                    PedidoArgumens(pedido.clienteId.toString()),
                               );
                             },
                             child: Row(
@@ -69,7 +71,7 @@ class _PedidoScreenState extends State<PedidoScreen> {
                                 Padding(
                                   padding: const EdgeInsets.only(right: 20),
                                   child: Text(
-                                    pedido.id.toString(),
+                                    pedido.clienteId.toString(),
                                     style: const TextStyle(),
                                   ),
                                 ),

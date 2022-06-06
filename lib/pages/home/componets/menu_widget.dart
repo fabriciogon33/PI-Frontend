@@ -23,7 +23,7 @@ class MenuWidget extends StatelessWidget {
                   fontWeight: FontWeight.w200,
                 ),
               ),
-              onTap: (() => Navigator.of(context).pushNamed('/')),
+              onTap: (() => Navigator.of(context).pushNamed('/pedidos')),
             ),
           ),
           const SizedBox(
@@ -59,7 +59,7 @@ class MenuWidget extends StatelessWidget {
                   fontWeight: FontWeight.w200,
                 ),
               ),
-              onTap: (() => Navigator.of(context).pushNamed('/costumers')),
+              onTap: (() => Navigator.of(context).pushNamed('/products')),
             ),
           ),
           const SizedBox(

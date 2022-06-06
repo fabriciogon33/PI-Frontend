@@ -15,6 +15,7 @@ class ProductDetailScreen extends StatefulWidget {
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
   ProductService productService = ProductService();
   late Future<ProductModel> product;
+  bool isUpdating = false;
 
   final _descricaoController = TextEditingController();
   final _tamanhoController = TextEditingController();
@@ -52,7 +53,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             _corController.text = product.cor.toString();
             _valorCustoController.text = product.valorCusto.toString();
             _valorVendaController.text = product.valorVenda.toString();
-            _observacaoController.text = product.observation.toString();
+            _observacaoController.text = product.obs.toString();
             return Column(
               children: [
                 Container(
@@ -150,23 +151,57 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                           left: 280,
                           right: 280,
                           bottom: 25,
-                          child: ElevatedButton(
-                            style: ElevatedButton.styleFrom(
-                              minimumSize: const Size.square(55),
-                              primary: const Color(0xffECDBC9),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(35),
-                              ),
-                            ),
-                            onPressed: () {
-                              Navigator.of(context).pushNamed('/costumers');
-                            },
-                            child: const Text(
-                              "Salvar",
-                              style: TextStyle(
-                                  fontSize: 18, color: Color(0xff707070)),
-                            ),
-                          ),
+                          child: isUpdating
+                              ? CircularProgressIndicator()
+                              : ElevatedButton(
+                                  style: ElevatedButton.styleFrom(
+                                    minimumSize: const Size.square(55),
+                                    primary: const Color(0xffECDBC9),
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(35),
+                                    ),
+                                  ),
+                                  onPressed: () async {
+                                    setState(() {
+                                      isUpdating = true;
+                                    });
+
+                                    if (_descricaoController.text != '' &&
+                                        _tamanhoController.text != '' &&
+                                        _corController.text != '' &&
+                                        _valorCustoController.text != '' &&
+                                        _valorVendaController.text != '' &&
+                                        _observacaoController.text != '') {
+                                      ProductModel productModel = ProductModel(
+                                          id: null,
+                                          descricao: _descricaoController.text,
+                                          tamanho: _tamanhoController.text,
+                                          cor: _corController.text,
+                                          valorCusto: int.parse(
+                                              _valorCustoController.text),
+                                          valorVenda: int.parse(
+                                              _valorVendaController.text),
+                                          obs: _observacaoController.text);
+                                      ProductModel? productCreate =
+                                          await productService.updateProduct(
+                                              product: productModel,
+                                              id: '/' + args.id);
+
+                                      if (productCreate != null) {
+                                        print(productCreate);
+                                      }
+                                    }
+                                    setState(() {
+                                      isUpdating = false;
+                                      Navigator.pushNamed(context, '/products');
+                                    });
+                                  },
+                                  child: const Text(
+                                    "Salvar",
+                                    style: TextStyle(
+                                        fontSize: 18, color: Color(0xff707070)),
+                                  ),
+                                ),
                         )
                       ],
                     ),

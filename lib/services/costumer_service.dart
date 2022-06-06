@@ -1,5 +1,4 @@
 import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:pi_dois/models/costumer_model.dart';
 import 'package:pi_dois/services/api.dart';

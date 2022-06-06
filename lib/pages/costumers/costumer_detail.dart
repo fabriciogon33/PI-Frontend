@@ -93,12 +93,12 @@ class _CostumerDetailScreenState extends State<CostumerDetailScreen> {
                             controller: _nameController,
                             label: "Nome",
                             decoration: InputDecoration(
-                              hintText: 'Ex: Robert Downey Junior',
+                              hintText: 'Ex: Robert',
                             ),
                           ),
                         ),
                         Positioned(
-                          top: 10,
+                          top: 60,
                           bottom: 80,
                           left: 10,
                           right: 380,
@@ -119,12 +119,12 @@ class _CostumerDetailScreenState extends State<CostumerDetailScreen> {
                             controller: _cpfController,
                             label: "CPF",
                             decoration: InputDecoration(
-                              hintText: 'Ex: Robert Downey Junior',
+                              hintText: 'Ex: 888.888.888-88',
                             ),
                           ),
                         ),
                         Positioned(
-                          top: 10,
+                          top: 60,
                           bottom: 80,
                           left: 420,
                           right: 10,
@@ -132,12 +132,12 @@ class _CostumerDetailScreenState extends State<CostumerDetailScreen> {
                             controller: _birthDateController,
                             label: "Data de Nascimento",
                             decoration: InputDecoration(
-                              hintText: 'Ex: 10-10-2020',
+                              hintText: 'Ex: 10/10/2000',
                             ),
                           ),
                         ),
                         Positioned(
-                          top: 70,
+                          top: 110,
                           bottom: 80,
                           left: 10,
                           right: 480,
@@ -145,12 +145,12 @@ class _CostumerDetailScreenState extends State<CostumerDetailScreen> {
                             controller: _phoneController,
                             label: "Telefone",
                             decoration: InputDecoration(
-                              hintText: 'Ex: Robert Downey Junior',
+                              hintText: 'Ex: (16)99999-9999',
                             ),
                           ),
                         ),
                         Positioned(
-                          top: 70,
+                          top: 110,
                           bottom: 80,
                           left: 320,
                           right: 10,
@@ -158,12 +158,12 @@ class _CostumerDetailScreenState extends State<CostumerDetailScreen> {
                             controller: _emailController,
                             label: "E-mail",
                             decoration: InputDecoration(
-                              hintText: 'Ex: Robert Downey Junior',
+                              hintText: 'Ex: exemplo@email.com',
                             ),
                           ),
                         ),
                         Positioned(
-                          top: 130,
+                          top: 160,
                           bottom: 80,
                           left: 10,
                           right: 520,
@@ -171,12 +171,12 @@ class _CostumerDetailScreenState extends State<CostumerDetailScreen> {
                             controller: _zipcodeController,
                             label: "CEP",
                             decoration: InputDecoration(
-                              hintText: 'Ex: Robert Downey Junior',
+                              hintText: 'Ex: 11000-000',
                             ),
                           ),
                         ),
                         Positioned(
-                          top: 130,
+                          top: 160,
                           bottom: 80,
                           left: 280,
                           right: 10,
@@ -184,12 +184,12 @@ class _CostumerDetailScreenState extends State<CostumerDetailScreen> {
                             controller: _streetController,
                             label: "Logradouro",
                             decoration: InputDecoration(
-                              hintText: 'Ex: Robert Downey Junior',
+                              hintText: 'Ex: Rua dois',
                             ),
                           ),
                         ),
                         Positioned(
-                          top: 190,
+                          top: 220,
                           bottom: 80,
                           left: 10,
                           right: 600,
@@ -197,12 +197,12 @@ class _CostumerDetailScreenState extends State<CostumerDetailScreen> {
                             controller: _numberController,
                             label: "Número",
                             decoration: InputDecoration(
-                              hintText: 'Ex: Robert Downey Junior',
+                              hintText: 'Ex: 100',
                             ),
                           ),
                         ),
                         Positioned(
-                          top: 190,
+                          top: 220,
                           bottom: 80,
                           left: 200,
                           right: 300,
@@ -210,12 +210,12 @@ class _CostumerDetailScreenState extends State<CostumerDetailScreen> {
                             controller: _complementController,
                             label: "Complemento",
                             decoration: InputDecoration(
-                              hintText: 'Ex: Robert Downey Junior',
+                              hintText: 'Ex: apto 01',
                             ),
                           ),
                         ),
                         Positioned(
-                          top: 190,
+                          top: 220,
                           bottom: 80,
                           left: 500,
                           right: 10,
@@ -223,12 +223,12 @@ class _CostumerDetailScreenState extends State<CostumerDetailScreen> {
                             controller: _districtController,
                             label: "Bairro",
                             decoration: InputDecoration(
-                              hintText: 'Ex: Robert Downey Junior',
+                              hintText: 'Ex: Centro',
                             ),
                           ),
                         ),
                         Positioned(
-                          top: 250,
+                          top: 280,
                           bottom: 80,
                           left: 10,
                           right: 380,
@@ -236,12 +236,12 @@ class _CostumerDetailScreenState extends State<CostumerDetailScreen> {
                             controller: _cityController,
                             label: "Cidade",
                             decoration: InputDecoration(
-                              hintText: 'Ex: Robert Downey Junior',
+                              hintText: 'Ex: Franca',
                             ),
                           ),
                         ),
                         Positioned(
-                          top: 250,
+                          top: 280,
                           bottom: 80,
                           left: 420,
                           right: 10,
@@ -249,12 +249,12 @@ class _CostumerDetailScreenState extends State<CostumerDetailScreen> {
                             controller: _stateController,
                             label: "Estado",
                             decoration: InputDecoration(
-                              hintText: 'Ex: Robert Downey Junior',
+                              hintText: 'Ex: SP',
                             ),
                           ),
                         ),
                         Positioned(
-                          top: 310,
+                          top: 340,
                           bottom: 0,
                           left: 10,
                           right: 10,
@@ -262,7 +262,7 @@ class _CostumerDetailScreenState extends State<CostumerDetailScreen> {
                             controller: _observationController,
                             label: "Observações",
                             decoration: InputDecoration(
-                              hintText: 'Ex: Robert Downey Junior',
+                              hintText: 'Ex: apartamento',
                             ),
                           ),
                         ),

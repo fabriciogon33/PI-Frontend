@@ -71,7 +71,7 @@ class _NewCostumerScreenState extends State<NewCostumerScreen> {
                       controller: _nameController,
                       label: "Nome",
                       decoration: InputDecoration(
-                        hintText: 'Ex: Robert Downey Junior',
+                        hintText: 'Ex: Robert',
                       ),
                     ),
                   ),
@@ -97,7 +97,7 @@ class _NewCostumerScreenState extends State<NewCostumerScreen> {
                       controller: _cpfController,
                       label: "CPF",
                       decoration: InputDecoration(
-                        hintText: 'Ex: Robert Downey Junior',
+                        hintText: 'Ex: 888.888.888-88',
                       ),
                     ),
                   ),
@@ -123,7 +123,7 @@ class _NewCostumerScreenState extends State<NewCostumerScreen> {
                       controller: _phoneController,
                       label: "Telefone",
                       decoration: InputDecoration(
-                        hintText: 'Ex: Robert Downey Junior',
+                        hintText: 'Ex: (16)99999-9999',
                       ),
                     ),
                   ),
@@ -136,7 +136,7 @@ class _NewCostumerScreenState extends State<NewCostumerScreen> {
                       controller: _emailController,
                       label: "E-mail",
                       decoration: InputDecoration(
-                        hintText: 'Ex: Robert Downey Junior',
+                        hintText: 'Ex: exemplo@email.com',
                       ),
                     ),
                   ),
@@ -149,7 +149,7 @@ class _NewCostumerScreenState extends State<NewCostumerScreen> {
                       controller: _zipcodeController,
                       label: "CEP",
                       decoration: InputDecoration(
-                        hintText: 'Ex: Robert Downey Junior',
+                        hintText: 'Ex: 11000-000',
                       ),
                     ),
                   ),
@@ -162,7 +162,7 @@ class _NewCostumerScreenState extends State<NewCostumerScreen> {
                       controller: _streetController,
                       label: "Logradouro",
                       decoration: InputDecoration(
-                        hintText: 'Ex: Robert Downey Junior',
+                        hintText: 'Ex: Rua dois',
                       ),
                     ),
                   ),
@@ -175,7 +175,7 @@ class _NewCostumerScreenState extends State<NewCostumerScreen> {
                       controller: _numberController,
                       label: "Número",
                       decoration: InputDecoration(
-                        hintText: 'Ex: Robert Downey Junior',
+                        hintText: 'Ex: 100',
                       ),
                     ),
                   ),
@@ -188,7 +188,7 @@ class _NewCostumerScreenState extends State<NewCostumerScreen> {
                       controller: _complementController,
                       label: "Complemento",
                       decoration: InputDecoration(
-                        hintText: 'Ex: Robert Downey Junior',
+                        hintText: 'Ex: apto 01',
                       ),
                     ),
                   ),
@@ -201,7 +201,7 @@ class _NewCostumerScreenState extends State<NewCostumerScreen> {
                       controller: _districtController,
                       label: "Bairro",
                       decoration: InputDecoration(
-                        hintText: 'Ex: Robert Downey Junior',
+                        hintText: 'Ex: Centro',
                       ),
                     ),
                   ),
@@ -214,7 +214,7 @@ class _NewCostumerScreenState extends State<NewCostumerScreen> {
                       controller: _cityController,
                       label: "Cidade",
                       decoration: InputDecoration(
-                        hintText: 'Ex: Robert Downey Junior',
+                        hintText: 'Ex: Franca',
                       ),
                     ),
                   ),
@@ -227,7 +227,7 @@ class _NewCostumerScreenState extends State<NewCostumerScreen> {
                       controller: _stateController,
                       label: "Estado",
                       decoration: InputDecoration(
-                        hintText: 'Ex: Robert Downey Junior',
+                        hintText: 'Ex: SP',
                       ),
                     ),
                   ),
@@ -240,7 +240,7 @@ class _NewCostumerScreenState extends State<NewCostumerScreen> {
                       controller: _observationController,
                       label: "Observações",
                       decoration: InputDecoration(
-                        hintText: 'Ex: Robert Downey Junior',
+                        hintText: 'Ex: apartamento',
                       ),
                     ),
                   ),

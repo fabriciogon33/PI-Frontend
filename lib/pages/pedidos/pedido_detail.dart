@@ -245,28 +245,38 @@ class _PedidoDetailScreenState extends State<PedidoDetailScreen> {
                                     });
 
                                     if (_clienteIdController.text != '' &&
-                                  _dataEntregaController.text != '' &&
-                                  _obsController.text != '' &&
-                                  _statusController.text != '' &&
-                                  _valorTotalBrutoController.text != '' &&
-                                  _valorFreteController.text != '' &&
-                                  _descontoController.text != '' &&
-                                  _valorTotalLiquidoController.text != '' &&
-                                  _transportadoraIdController.text != '' &&
-                                  _formaPagtoIdController.text != '' &&
-                                PedidoModel pedidoModel = PedidoModel(
-                                    clienteId: null,
-                                    dataEntrega: _dataEntregaController.text,
-                                    obs: _obsController.text,
-                                    status: _statusController.text,
-                                    valorTotalBruto: _valorTotalBrutoController.text,
-                                    valorFrete: _valorFreteController.text,
-                                    desconto: _descontoController.text,
-                                    valorTotalLiquido: _valorTotalLiquidoController.text,
-                                    transportadoraId: _transportadoraIdController.text,
-                                    formaPagtoId: _formaPagtoIdController.text
-                                    );
-                                  PedidoModel? pedidoCreate =
+                                        _dataEntregaController.text != '' &&
+                                        _obsController.text != '' &&
+                                        _statusController.text != '' &&
+                                        _valorTotalBrutoController.text != '' &&
+                                        _valorFreteController.text != '' &&
+                                        _descontoController.text != '' &&
+                                        _valorTotalLiquidoController.text !=
+                                            '' &&
+                                        _transportadoraIdController.text !=
+                                            '' &&
+                                        _formaPagtoIdController.text != '') {
+                                      PedidoModel pedidoModel = PedidoModel(
+                                          clienteId: null,
+                                          dataEntrega:
+                                              _dataEntregaController.text,
+                                          obs: _obsController.text,
+                                          status: _statusController.text,
+                                          valorTotalBruto:
+                                              _valorTotalBrutoController.text,
+                                          valorFrete:
+                                              _valorFreteController.text,
+                                          desconto: _descontoController.text,
+                                          valorTotalLiquido:
+                                              _valorTotalLiquidoController.text,
+                                          transportadoraId: int.parse(
+                                              _transportadoraIdController.text),
+                                          formaPagtoId: int.parse(
+                                              _formaPagtoIdController.text),
+                                          statusId: int.parse(
+                                              _statusController.text));
+
+                                      PedidoModel? pedidoCreate =
                                           await pedidoService.updatePedido(
                                               pedido: pedidoModel,
                                               clienteId: '/' + args.id);
@@ -277,18 +287,16 @@ class _PedidoDetailScreenState extends State<PedidoDetailScreen> {
                                     }
                                     setState(() {
                                       isUpdating = false;
-                                      Navigator.pushNamed(
-                                          context, '/pedidos');
+                                      Navigator.pushNamed(context, '/pedidos');
                                     });
                                   },
-
-                            child: const Text(
-                              "Salvar",
-                              style: TextStyle(
-                                  fontSize: 18, color: Color(0xff707070)),
-                            ),
-                          ),
-                        )
+                                  child: const Text(
+                                    "Salvar",
+                                    style: TextStyle(
+                                        fontSize: 18, color: Color(0xff707070)),
+                                  ),
+                                ),
+                        ),
                       ],
                     ),
                   ),

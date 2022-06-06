@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:pi_dois/models/product_model.dart';
 import 'package:pi_dois/pages/products/products.dart';
 import 'package:pi_dois/pages/home/componets/custom_text_field.dart';
+import 'package:pi_dois/services/product_service.dart';
 
 class NewProductScreen extends StatefulWidget {
   const NewProductScreen({Key? key}) : super(key: key);
@@ -10,12 +12,20 @@ class NewProductScreen extends StatefulWidget {
 }
 
 class _NewProductScreenState extends State<NewProductScreen> {
+  ProductService productService = ProductService();
+  bool isCreating = false;
+
   final _descricaoController = TextEditingController();
   final _tamanhoController = TextEditingController();
   final _corController = TextEditingController();
   final _valorCustoController = TextEditingController();
   final _valorVendaController = TextEditingController();
   final _observacaoController = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -126,23 +136,57 @@ class _NewProductScreenState extends State<NewProductScreen> {
                     left: 280,
                     right: 280,
                     bottom: 25,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: const Size.square(55),
-                        primary: const Color(0xffECDBC9),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(35),
-                        ),
-                      ),
-                      onPressed: () {
-                        Navigator.of(context).pushNamed('/products');
-                      },
-                      child: const Text(
-                        "Salvar",
-                        style:
-                            TextStyle(fontSize: 18, color: Color(0xff707070)),
-                      ),
-                    ),
+                    child: isCreating
+                        ? CircularProgressIndicator()
+                        : ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              minimumSize: const Size.square(55),
+                              primary: const Color(0xffECDBC9),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(35),
+                              ),
+                            ),
+                            onPressed: () async {
+                              setState(() {
+                                isCreating = true;
+                              });
+
+                              if (_descricaoController.text != '' &&
+                                  _tamanhoController.text != '' &&
+                                  _corController.text != '' &&
+                                  _valorCustoController.text != '' &&
+                                  _valorVendaController.text != '' &&
+                                  _observacaoController.text != '') {
+                                ProductModel productModel = ProductModel(
+                                    id: null,
+                                    descricao: _descricaoController.text,
+                                    tamanho: _tamanhoController.text,
+                                    cor: _corController.text,
+                                    valorCusto:
+                                        int.parse(_valorCustoController.text),
+                                    valorVenda:
+                                        int.parse(_valorVendaController.text),
+                                    obs: _observacaoController.text);
+
+                                ProductModel? productCreate =
+                                    await productService.createProduct(
+                                        product: productModel);
+
+                                if (productCreate != null) {
+                                  print(productCreate);
+                                }
+                              }
+                              setState(() {
+                                isCreating = false;
+                                Navigator.pushNamed(context, '/products');
+                              });
+                            },
+                            child: const Text(
+                              "Salvar",
+                              style: TextStyle(
+                                  fontSize: 18, color: Color(0xff707070)),
+                            ),
+                          ),
                   )
                 ],
               ),
