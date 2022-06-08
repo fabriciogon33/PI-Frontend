@@ -12,6 +12,7 @@ import 'package:pi_dois/pages/products/product_detail.dart';
 import 'package:pi_dois/pages/pedidos/novo_pedido.dart';
 import 'package:pi_dois/pages/pedidos/pedidos.dart';
 import 'package:pi_dois/pages/pedidos/pedido_detail.dart';
+import 'package:pi_dois/pages/relatorios/relatorios.dart';
 
 void main() {
   runApp(const MyApp());
@@ -39,6 +40,7 @@ class MyApp extends StatelessWidget {
         '/pedidos': (context) => const PedidoScreen(),
         '/new-pedido': (context) => NovoPedidoScreen(),
         '/pedidos-detail': (context) => const PedidoDetailScreen(),
+        //  '/relatórios': (context) => const relatorioScreen(),
       },
       theme: ThemeData(
         primarySwatch: Colors.purple,

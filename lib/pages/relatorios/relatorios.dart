@@ -1,23 +1,23 @@
-import 'package:flutter/material.dart';
-import 'package:pi_dois/models/product_model.dart';
+/* import 'package:flutter/material.dart';
+import 'package:pi_dois/models/relatorio_model.dart';
 import 'package:pi_dois/pages/home/componets/menu_widget.dart';
-import 'package:pi_dois/services/product_service.dart';
+import 'package:pi_dois/services/relatorio_service.dart';
 
-class ProductScreen extends StatefulWidget {
-  const ProductScreen({Key? key}) : super(key: key);
+class RelatorioScreen extends StatefulWidget {
+  const RelatorioScreen({Key? key}) : super(key: key);
 
   @override
-  State<ProductScreen> createState() => _ProductScreenState();
+  State<RelatorioScreen> createState() => _RelatorioScreenState();
 }
 
-class _ProductScreenState extends State<ProductScreen> {
-  ProductService productService = ProductService();
-  late Future<List<ProductModel>> productList;
-
+/* class _RelatorioScreenState extends State<RelatorioScreen> {
+  RelatorioService relatorioService = RelatorioService();
+  late Future<List<RelatorioModel>> relatorioList;
+ */
   @override
   void initState() {
     super.initState();
-    productList = productService.getAllProducts();
+   // relatorioList = relatorioService.getAllrelatorios();
   }
 
   @override
@@ -31,8 +31,8 @@ class _ProductScreenState extends State<ProductScreen> {
         ),
       ),
       drawer: const MenuWidget(),
-      body: FutureBuilder<List<ProductModel>>(
-        future: productList,
+      body: FutureBuilder<List<RelatorioModel>>(
+        future:relatorioList,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             return Column(
@@ -48,7 +48,7 @@ class _ProductScreenState extends State<ProductScreen> {
                   child: ListView.separated(
                     itemBuilder: (context, index) {
                       var product =
-                          (snapshot.data as List<ProductModel>)[index];
+                          (snapshot.data as List<RelatorioModel>)[index];
                       return Container(
                         padding: const EdgeInsets.all(5),
                         child: Padding(
@@ -59,39 +59,14 @@ class _ProductScreenState extends State<ProductScreen> {
                               Padding(
                                 padding: const EdgeInsets.only(right: 20),
                                 child: Text(
-                                  product.id.toString(),
-                                  style: const TextStyle(),
+                                  'Novo Relatório'
                                 ),
                               ),
-                              Padding(
-                                padding: const EdgeInsets.only(right: 60),
-                                child: Text(
-                                  product.descricao,
-                                  style: const TextStyle(),
-                                ),
-                              ),
-                              Text(
-                                product.tamanho,
-                                style: const TextStyle(),
-                              ),
-                            ],
-                          ),
-                        ),
-                      );
-                    },
-                    separatorBuilder: (context, index) {
-                      return const Divider();
-                    },
-                    itemCount: (snapshot.data as List<ProductModel>).length,
-                  ),
-                ),
-                SizedBox(
-                  height: 150,
-                  child: Stack(
-                    children: [
-                      Positioned(
-                        right: 75,
-                        bottom: 40,
+                                              Positioned(
+                        top: 10,
+                        bottom: 80,
+                        left: 420,
+                        right: 10,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             minimumSize: const Size.square(55),
@@ -104,12 +79,26 @@ class _ProductScreenState extends State<ProductScreen> {
                             Navigator.of(context).pushNamed('/new-product');
                           },
                           child: const Text(
-                            "Novo Produto",
+                            "Novo Relatório",
                             style: TextStyle(
                                 fontSize: 18, color: Color(0xff707070)),
                           ),
                         ),
                       )
+                              ),
+                              
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                    separatorBuilder: (context, index) {
+                      return const Divider();
+                    },
+                    itemCount: (snapshot.data as List<RelatorioModel>).length,
+                  ),
+                ),
+                
                     ],
                   ),
                 )
@@ -130,3 +119,4 @@ class _ProductScreenState extends State<ProductScreen> {
     );
   }
 }
+ */

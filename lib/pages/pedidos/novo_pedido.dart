@@ -16,6 +16,7 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
   bool isCreating = false;
 
   final _clienteIdController = TextEditingController();
+  final _dataPedidoController = TextEditingController();
   final _dataEntregaController = TextEditingController();
   final _obsController = TextEditingController();
   final _statusController = TextEditingController();
@@ -68,6 +69,19 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
                       label: "Cliente ID",
                       decoration: InputDecoration(
                         hintText: 'Ex: Id',
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    top: 10,
+                    bottom: 90,
+                    left: 10,
+                    right: 380,
+                    child: CustomTextField(
+                      controller: _dataPedidoController,
+                      label: "Data de Pedido",
+                      decoration: InputDecoration(
+                        hintText: 'Ex: 12/05/2022',
                       ),
                     ),
                   ),
@@ -209,6 +223,7 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
                               });
 
                               if (_clienteIdController.text != '' &&
+                                  _dataPedidoController.text != '' &&
                                   _dataEntregaController.text != '' &&
                                   _obsController.text != '' &&
                                   _statusController.text != '' &&
@@ -219,16 +234,21 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
                                   _transportadoraIdController.text != '' &&
                                   _formaPagtoIdController.text != '') {
                                 PedidoModel pedidoModel = PedidoModel(
-                                    clienteId: null,
+                                    id: null,
+                                    clienteId:
+                                        int.parse(_clienteIdController.text),
+                                    dataPedido: _dataEntregaController.text,
                                     dataEntrega: _dataEntregaController.text,
                                     obs: _obsController.text,
                                     status: _statusController.text,
-                                    valorTotalBruto:
-                                        _valorTotalBrutoController.text,
-                                    valorFrete: _valorFreteController.text,
-                                    desconto: _descontoController.text,
-                                    valorTotalLiquido:
-                                        _valorTotalLiquidoController.text,
+                                    valorTotalBruto: int.parse(
+                                        _valorTotalBrutoController.text),
+                                    valorFrete:
+                                        int.parse(_valorFreteController.text),
+                                    desconto:
+                                        int.parse(_descontoController.text),
+                                    valorTotalLiquido: int.parse(
+                                        _valorTotalLiquidoController.text),
                                     transportadoraId: int.parse(
                                         _transportadoraIdController.text),
                                     formaPagtoId:

@@ -61,8 +61,7 @@ class _PedidoScreenState extends State<PedidoScreen> {
                               Navigator.pushNamed(
                                 context,
                                 '/pedido-detail',
-                                arguments:
-                                    PedidoArgumens(pedido.clienteId.toString()),
+                                arguments: PedidoArgumens(pedido.id.toString()),
                               );
                             },
                             child: Row(
@@ -71,14 +70,14 @@ class _PedidoScreenState extends State<PedidoScreen> {
                                 Padding(
                                   padding: const EdgeInsets.only(right: 20),
                                   child: Text(
-                                    pedido.clienteId.toString(),
+                                    pedido.id.toString(),
                                     style: const TextStyle(),
                                   ),
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.only(right: 60),
                                   child: Text(
-                                    pedido.dataEntrega,
+                                    pedido.dataPedido,
                                     style: const TextStyle(),
                                   ),
                                 ),

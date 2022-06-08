@@ -1,18 +1,22 @@
 class PedidoModel {
-  int? clienteId;
+  int? id;
+  int clienteId;
+  String dataPedido;
   String dataEntrega;
   String obs;
   String status;
-  String valorTotalBruto;
-  String valorFrete;
-  String desconto;
-  String valorTotalLiquido;
+  int valorTotalBruto;
+  int valorFrete;
+  int desconto;
+  int valorTotalLiquido;
   int transportadoraId;
   int formaPagtoId;
   int statusId;
 
   PedidoModel({
-    this.clienteId,
+    this.id,
+    required this.clienteId,
+    required this.dataPedido,
     required this.dataEntrega,
     required this.obs,
     required this.status,
@@ -27,7 +31,9 @@ class PedidoModel {
 
   factory PedidoModel.fromJson(Map<String, dynamic> json) {
     return PedidoModel(
+      id: json['id'],
       clienteId: json['cliente_id'],
+      dataPedido: json['data_pedido'],
       dataEntrega: json['data_entrega'],
       obs: json['obs'],
       status: json['status'],
@@ -42,7 +48,9 @@ class PedidoModel {
   }
 
   Map<String, dynamic> toJson() => {
+        'id': id,
         'cliente_id': clienteId,
+        'data_pedido': dataPedido,
         'data_entrega': dataEntrega,
         'obs': obs,
         'status': status,

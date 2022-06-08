@@ -23,9 +23,9 @@ class PedidoService {
     }
   }
 
-  Future<PedidoModel> getPedidoById(String clienteId) async {
+  Future<PedidoModel> getPedidoById(String id) async {
     try {
-      Response response = await Dio().get(url + pathUrl + clienteId);
+      Response response = await Dio().get(url + pathUrl + id);
       if (response.statusCode == 200) {
         return PedidoModel.fromJson(response.data);
       } else {
@@ -55,11 +55,11 @@ class PedidoService {
   }
 
   Future<PedidoModel?> updatePedido(
-      {required PedidoModel pedido, required String clienteId}) async {
+      {required PedidoModel pedido, required String id}) async {
     PedidoModel? pedidoCreate;
     try {
       Response response = await Dio().put(
-        url + pathUrl + clienteId,
+        url + pathUrl + id,
         data: pedido.toJson(),
       );
       print('Usuário criado: ${response.data}');
@@ -72,9 +72,9 @@ class PedidoService {
     return pedidoCreate;
   }
 
-  Future<void> deletePedido(String clienteId) async {
+  Future<void> deletePedido(String id) async {
     try {
-      await Dio().delete(url + pathUrl + '/' + clienteId);
+      await Dio().delete(url + pathUrl + '/' + id);
     } catch (e) {
       throw Exception("Erro ao deletar pedido $e");
     }

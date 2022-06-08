@@ -77,7 +77,7 @@ class MenuWidget extends StatelessWidget {
                   fontWeight: FontWeight.w200,
                 ),
               ),
-              onTap: (() => Navigator.of(context).pushNamed('/costumers')),
+              onTap: (() => Navigator.of(context).pushNamed('/relatorios')),
             ),
           ),
         ],
