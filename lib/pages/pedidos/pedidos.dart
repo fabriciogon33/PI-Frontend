@@ -81,6 +81,41 @@ class _PedidoScreenState extends State<PedidoScreen> {
                                     style: const TextStyle(),
                                   ),
                                 ),
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 60),
+                                  child: Text(
+                                    pedido.clienteId.toString(),
+                                    style: const TextStyle(),
+                                  ),
+                                ),
+                                Text(
+                                  pedido.dataEntrega,
+                                  style: const TextStyle(),
+                                ),
+                                new Spacer(),
+                                isDeleting
+                                    ? CircularProgressIndicator()
+                                    : IconButton(
+                                        onPressed: () async {
+                                          setState(() {
+                                            isDeleting = true;
+                                          });
+                                          pedidoService.deletePedido(
+                                              pedido.id.toString());
+                                          setState(() {
+                                            isDeleting = false;
+                                            pedidoList =
+                                                pedidoService.getAllPedidos();
+                                            Navigator.pushReplacement(
+                                                context,
+                                                MaterialPageRoute(
+                                                    builder: (BuildContext
+                                                            context) =>
+                                                        super.widget));
+                                          });
+                                        },
+                                        iconSize: 25,
+                                        icon: const Icon(Icons.delete))
                               ],
                             ),
                           ),
