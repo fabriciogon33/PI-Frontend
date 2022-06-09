@@ -42,7 +42,7 @@ class PedidoModel {
       desconto: json['desconto'],
       valorTotalLiquido: json['valor_total_liquido'],
       transportadoraId: json['transportadora_id'],
-      formaPagtoId: json['forma_pgto_id'],
+      formaPagtoId: json['forma_pagto_id'],
       statusId: json['status_id'],
     );
   }
@@ -59,7 +59,7 @@ class PedidoModel {
         'desconto': desconto,
         'valor_total_liquido': valorTotalLiquido,
         'transportadora_id': transportadoraId,
-        'forma_pgto_id': formaPagtoId,
+        'forma_pagto_id': formaPagtoId,
         'status_id': statusId
       };
 }
