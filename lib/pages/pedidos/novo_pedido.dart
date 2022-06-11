@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:pi_dois/pages/home/componets/dropdown_pedidos.dart';
 import 'package:pi_dois/pages/pedidos/pedidos.dart';
 import 'package:pi_dois/pages/home/componets/custom_text_field.dart';
 import 'package:pi_dois/services/pedido_service.dart';
 import 'package:pi_dois/models/pedido_model.dart';
+import 'package:pi_dois/pages/home/componets/dropdown_pedidos.dart';
 
 class NovoPedidoScreen extends StatefulWidget {
   NovoPedidoScreen({Key? key}) : super(key: key);
@@ -72,6 +74,13 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
                       ),
                     ),
                   ),
+                  /* Positioned(
+                    top: 20,
+                    bottom: 90,
+                    left: 10,
+                    right: 380,
+                    child: DropDownCliente(),
+                  ), */
                   Positioned(
                     top: 10,
                     bottom: 90,
