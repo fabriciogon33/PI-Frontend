@@ -250,13 +250,13 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
                                     dataEntrega: _dataEntregaController.text,
                                     obs: _obsController.text,
                                     status: _statusController.text,
-                                    valorTotalBruto: int.parse(
+                                    valorTotalBruto: double.parse(
                                         _valorTotalBrutoController.text),
-                                    valorFrete:
-                                        int.parse(_valorFreteController.text),
+                                    valorFrete: double.parse(
+                                        _valorFreteController.text),
                                     desconto:
-                                        int.parse(_descontoController.text),
-                                    valorTotalLiquido: int.parse(
+                                        double.parse(_descontoController.text),
+                                    valorTotalLiquido: double.parse(
                                         _valorTotalLiquidoController.text),
                                     transportadoraId: int.parse(
                                         _transportadoraIdController.text),

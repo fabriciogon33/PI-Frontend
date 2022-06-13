@@ -60,7 +60,7 @@ class _PedidoScreenState extends State<PedidoScreen> {
                             onTap: () {
                               Navigator.pushNamed(
                                 context,
-                                '/pedido-detail',
+                                '/pedidos-detail',
                                 arguments: PedidoArgumens(pedido.id.toString()),
                               );
                             },

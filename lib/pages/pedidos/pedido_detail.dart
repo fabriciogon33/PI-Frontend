@@ -282,13 +282,13 @@ class _PedidoDetailScreenState extends State<PedidoDetailScreen> {
                                               _dataEntregaController.text,
                                           obs: _obsController.text,
                                           status: _statusController.text,
-                                          valorTotalBruto: int.parse(
+                                          valorTotalBruto: double.parse(
                                               _valorTotalBrutoController.text),
-                                          valorFrete: int.parse(
+                                          valorFrete: double.parse(
                                               _valorFreteController.text),
-                                          desconto: int.parse(
+                                          desconto: double.parse(
                                               _descontoController.text),
-                                          valorTotalLiquido: int.parse(
+                                          valorTotalLiquido: double.parse(
                                               _valorTotalLiquidoController
                                                   .text),
                                           transportadoraId: int.parse(

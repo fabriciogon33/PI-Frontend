@@ -5,10 +5,10 @@ class PedidoModel {
   String dataEntrega;
   String obs;
   String status;
-  int valorTotalBruto;
-  int valorFrete;
-  int desconto;
-  int valorTotalLiquido;
+  double valorTotalBruto;
+  double valorFrete;
+  double desconto;
+  double valorTotalLiquido;
   int transportadoraId;
   int formaPagtoId;
   int statusId;
