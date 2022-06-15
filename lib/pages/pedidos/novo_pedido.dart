@@ -17,9 +17,11 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
   PedidoService pedidoService = PedidoService();
   bool isCreating = false;
 
+  final _nomeClienteController = TextEditingController();
   final _clienteIdController = TextEditingController();
   final _dataPedidoController = TextEditingController();
   final _dataEntregaController = TextEditingController();
+  //final _produtosController = TextEditingController();
   final _obsController = TextEditingController();
   final _statusController = TextEditingController();
   final _valorTotalBrutoController = TextEditingController();
@@ -64,8 +66,8 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
                   Positioned(
                     top: 10,
                     bottom: 80,
-                    left: 10,
-                    right: 380,
+                    left: 420,
+                    right: 10,
                     child: CustomTextField(
                       controller: _clienteIdController,
                       label: "Cliente ID",
@@ -74,18 +76,24 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
                       ),
                     ),
                   ),
-                  /* Positioned(
-                    top: 20,
-                    bottom: 90,
-                    left: 10,
-                    right: 380,
-                    child: DropDownCliente(),
-                  ), */
                   Positioned(
                     top: 10,
-                    bottom: 90,
+                    bottom: 80,
                     left: 10,
                     right: 380,
+                    child: CustomTextField(
+                      controller: _nomeClienteController,
+                      label: "Nome do Cliente",
+                      decoration: InputDecoration(
+                        hintText: 'Ex: Id',
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    top: 70,
+                    bottom: 80,
+                    left: 10,
+                    right: 540,
                     child: CustomTextField(
                       controller: _dataPedidoController,
                       label: "Data de Pedido",
@@ -97,8 +105,8 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
                   Positioned(
                     top: 70,
                     bottom: 80,
-                    left: 10,
-                    right: 600,
+                    left: 250,
+                    right: 290,
                     child: CustomTextField(
                       controller: _dataEntregaController,
                       label: "Data de Entrega",
@@ -108,10 +116,10 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
                     ),
                   ),
                   Positioned(
-                    top: 10,
-                    bottom: 80,
-                    left: 420,
-                    right: 10,
+                    top: 190,
+                    bottom: 90,
+                    left: 10,
+                    right: 380,
                     child: CustomTextField(
                       controller: _obsController,
                       label: "Observação",
@@ -121,10 +129,23 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
                     ),
                   ),
                   Positioned(
-                    top: 70,
+                    top: 130,
                     bottom: 80,
-                    left: 200,
-                    right: 300,
+                    left: 10,
+                    right: 10,
+                    child: CustomTextField(
+                      //controller: _produtosController,
+                      label: "Produtos",
+                      decoration: InputDecoration(
+                        hintText: 'Ex: Embrulhar para Presente',
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    top: 190,
+                    bottom: 80,
+                    left: 420,
+                    right: 10,
                     child: CustomTextField(
                       controller: _statusController,
                       label: "Status",
@@ -147,10 +168,10 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
                     ),
                   ),
                   Positioned(
-                    top: 130,
+                    top: 250,
                     bottom: 80,
                     left: 10,
-                    right: 520,
+                    right: 540,
                     child: CustomTextField(
                       controller: _valorFreteController,
                       label: "Valor do Frete",
@@ -160,10 +181,10 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
                     ),
                   ),
                   Positioned(
-                    top: 130,
+                    top: 250,
                     bottom: 80,
-                    left: 280,
-                    right: 10,
+                    left: 250,
+                    right: 290,
                     child: CustomTextField(
                       controller: _descontoController,
                       label: "Desconto",
@@ -173,10 +194,10 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
                     ),
                   ),
                   Positioned(
-                    top: 190,
+                    top: 250,
                     bottom: 80,
-                    left: 10,
-                    right: 600,
+                    left: 500,
+                    right: 10,
                     child: CustomTextField(
                       controller: _valorTotalLiquidoController,
                       label: "Valor Total Liquido",
@@ -186,10 +207,10 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
                     ),
                   ),
                   Positioned(
-                    top: 190,
+                    top: 310,
                     bottom: 80,
-                    left: 200,
-                    right: 300,
+                    left: 250,
+                    right: 290,
                     child: CustomTextField(
                       controller: _transportadoraIdController,
                       label: "Transportadora Id",
@@ -199,10 +220,10 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
                     ),
                   ),
                   Positioned(
-                    top: 190,
+                    top: 310,
                     bottom: 80,
-                    left: 500,
-                    right: 10,
+                    left: 10,
+                    right: 540,
                     child: CustomTextField(
                       controller: _statusIdController,
                       label: "Status Id",
@@ -232,8 +253,10 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
                               });
 
                               if (_clienteIdController.text != '' &&
+                                  _nomeClienteController.text != '' &&
                                   _dataPedidoController.text != '' &&
                                   _dataEntregaController.text != '' &&
+                                  //_produtosController.text != '' &&
                                   _obsController.text != '' &&
                                   _statusController.text != '' &&
                                   _valorTotalBrutoController.text != '' &&
@@ -244,10 +267,12 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
                                   _formaPagtoIdController.text != '') {
                                 PedidoModel pedidoModel = PedidoModel(
                                     id: null,
+                                    nomeCliente: _nomeClienteController.text,
                                     clienteId:
                                         int.parse(_clienteIdController.text),
                                     dataPedido: _dataEntregaController.text,
                                     dataEntrega: _dataEntregaController.text,
+                                    //produtos: _produtosController.text,
                                     obs: _obsController.text,
                                     status: _statusController.text,
                                     valorTotalBruto: double.parse(
