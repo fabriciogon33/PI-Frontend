@@ -58,7 +58,7 @@ class CostumerModel {
         'nome': name,
         'tipo': type,
         'cpf_cnpj': cpf,
-        'data_nasciento': birthDate,
+        'data_nascimento': birthDate,
         'telefone': phone,
         'email': email,
         'cep': zipcode,

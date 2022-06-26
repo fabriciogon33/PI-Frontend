@@ -21,7 +21,7 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
   final _clienteIdController = TextEditingController();
   final _dataPedidoController = TextEditingController();
   final _dataEntregaController = TextEditingController();
-  //final _produtosController = TextEditingController();
+  final _produtosController = TextEditingController();
   final _obsController = TextEditingController();
   final _statusController = TextEditingController();
   final _valorTotalBrutoController = TextEditingController();
@@ -134,7 +134,7 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
                     left: 10,
                     right: 10,
                     child: CustomTextField(
-                      //controller: _produtosController,
+                      controller: _produtosController,
                       label: "Produtos",
                       decoration: InputDecoration(
                         hintText: 'Ex: Embrulhar para Presente',
@@ -233,6 +233,19 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
                     ),
                   ),
                   Positioned(
+                    top: 310,
+                    bottom: 80,
+                    left: 500,
+                    right: 10,
+                    child: CustomTextField(
+                      controller: _formaPagtoIdController,
+                      label: "Forma de pagamento ID",
+                      decoration: InputDecoration(
+                        hintText: 'Ex: Entregue',
+                      ),
+                    ),
+                  ),
+                  Positioned(
                     top: 390,
                     left: 280,
                     right: 280,
@@ -256,7 +269,7 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
                                   _nomeClienteController.text != '' &&
                                   _dataPedidoController.text != '' &&
                                   _dataEntregaController.text != '' &&
-                                  //_produtosController.text != '' &&
+                                  _produtosController.text != '' &&
                                   _obsController.text != '' &&
                                   _statusController.text != '' &&
                                   _valorTotalBrutoController.text != '' &&
@@ -270,9 +283,9 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
                                     nomeCliente: _nomeClienteController.text,
                                     clienteId:
                                         int.parse(_clienteIdController.text),
-                                    dataPedido: _dataEntregaController.text,
+                                    dataPedido: _dataPedidoController.text,
                                     dataEntrega: _dataEntregaController.text,
-                                    //produtos: _produtosController.text,
+                                    produtos: _produtosController.text,
                                     obs: _obsController.text,
                                     status: _statusController.text,
                                     valorTotalBruto: double.parse(
@@ -288,7 +301,7 @@ class _NovoPedidoScreenState extends State<NovoPedidoScreen> {
                                     formaPagtoId:
                                         int.parse(_formaPagtoIdController.text),
                                     statusId:
-                                        int.parse(_statusController.text));
+                                        int.parse(_statusIdController.text));
 
                                 PedidoModel? pedidoCreate = await pedidoService
                                     .createPedido(pedido: pedidoModel);

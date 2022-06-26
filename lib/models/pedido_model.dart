@@ -4,9 +4,9 @@ class PedidoModel {
   int clienteId;
   String dataPedido;
   String dataEntrega;
-  //String produtos;
+  String? produtos;
   String obs;
-  String status;
+  String? status;
   double valorTotalBruto;
   double valorFrete;
   double desconto;
@@ -21,9 +21,9 @@ class PedidoModel {
     required this.clienteId,
     required this.dataPedido,
     required this.dataEntrega,
-    //required this.produtos,
+    this.produtos,
     required this.obs,
-    required this.status,
+    this.status,
     required this.valorTotalBruto,
     required this.valorFrete,
     required this.desconto,
@@ -40,7 +40,7 @@ class PedidoModel {
       clienteId: json['cliente_id'],
       dataPedido: json['data_pedido'],
       dataEntrega: json['data_entrega'],
-      // produtos: json['produtos'],
+      produtos: json['produtos_string'],
       obs: json['obs'],
       status: json['status'],
       valorTotalBruto: json['valor_total_bruto'],
@@ -59,7 +59,7 @@ class PedidoModel {
         'cliente_id': clienteId,
         'data_pedido': dataPedido,
         'data_entrega': dataEntrega,
-        //'produtos': produtos,
+        'produtos_string': produtos,
         'obs': obs,
         'status': status,
         'valor_total_bruto': valorTotalBruto,

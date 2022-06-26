@@ -266,7 +266,7 @@ class _NewCostumerScreenState extends State<NewCostumerScreen> {
 
                               if (_typeController.text != '' &&
                                   _nameController.text != '' &&
-                                  _birthDateController != '' &&
+                                  _birthDateController.text != '' &&
                                   _cpfController.text != '' &&
                                   _phoneController.text != '' &&
                                   _emailController.text != '' &&

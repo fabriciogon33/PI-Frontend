@@ -65,7 +65,7 @@ class MenuWidget extends StatelessWidget {
           const SizedBox(
             height: 35,
           ),
-          Ink(
+          /* Ink(
             color: const Color(0xffECDBC9),
             padding: const EdgeInsets.fromLTRB(0, 8, 0, 8),
             child: ListTile(
@@ -79,7 +79,7 @@ class MenuWidget extends StatelessWidget {
               ),
               onTap: (() => Navigator.of(context).pushNamed('/relatorios')),
             ),
-          ),
+          ), */
         ],
       ),
     );

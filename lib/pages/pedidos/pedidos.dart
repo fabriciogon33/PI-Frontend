@@ -77,19 +77,19 @@ class _PedidoScreenState extends State<PedidoScreen> {
                                 Padding(
                                   padding: const EdgeInsets.only(right: 60),
                                   child: Text(
-                                    pedido.dataPedido,
+                                    pedido.nomeCliente,
                                     style: const TextStyle(),
                                   ),
                                 ),
                                 Padding(
                                   padding: const EdgeInsets.only(right: 60),
                                   child: Text(
-                                    pedido.clienteId.toString(),
+                                    pedido.produtos.toString(),
                                     style: const TextStyle(),
                                   ),
                                 ),
                                 Text(
-                                  pedido.dataEntrega,
+                                  pedido.dataPedido,
                                   style: const TextStyle(),
                                 ),
                                 new Spacer(),
