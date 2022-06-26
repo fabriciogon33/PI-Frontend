@@ -290,7 +290,10 @@ class _NewCostumerScreenState extends State<NewCostumerScreen> {
                                     street: _streetController.text,
                                     district: _districtController.text,
                                     city: _cityController.text,
-                                    state: _stateController.text);
+                                    state: _stateController.text,
+                                    number: _numberController.text,
+                                    complement: _complementController.text,
+                                    observation: _observationController.text);
 
                                 CostumerModel? costumerCreate =
                                     await costumerService.createCostumer(
